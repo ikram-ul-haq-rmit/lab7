@@ -14,6 +14,8 @@ stat -c "%a" /home/ubuntu/.ssh/github_sdo_key.pub
 # Update permissions
 chmod 400 /home/ubuntu/.ssh/github_sdo_key.pub
 # Start Learner Lab and update the credentials in ~/.aws/credentials file
+# Check a sample aws command
+aws s3 ls
 # Create Resources
 terraform apply
 
