@@ -7,9 +7,12 @@ vim you.auto.tfvars
 # update public key (/home/ubuntu/.ssh/github_sdo_key.pub) and ip address and set allow=true i.e allow all ips
 # Check IP address with "curl ifconfig.co"
 stat -c "%a" /home/ubuntu/.ssh/github_sdo_key.pub
+# Update permissions
 chmod 400 /home/ubuntu/.ssh/github_sdo_key.pub
+# Create Resources
 terraform apply
 
+# Sample Ips
 #"app" =  "3.87.44.32"
 #"db" =  "44.208.36.128"
 
@@ -19,14 +22,17 @@ ansible app_servers -m ping -i inventory1.yml -u ubuntu --private-key ~/.ssh/git
 # Run the “app” playbook:
 ansible-playbook app-playbook.yml -i inventory1.yml --private-key ~/.ssh/github_sdo_key
 
+# Check Live IP
 curl http://3.87.44.32/
 
 # Update RDS IP in inventory2.yml
 vim inventory2.yml
+# Execute command
 ansible-playbook db-playbook.yml -i inventory2.yml --private-key ~/.ssh/github_sdo_key
 
 # 7.0
 docker pull postgres:14.7
+# Docker Run
 docker run -it --rm postgres:14.7 psql -h 44.208.36.128 -U pete -d foo      #Password devops
 
 # 8.0: Create Tables
@@ -34,6 +40,7 @@ CREATE TABLE bars (id INT PRIMARY KEY, name TEXT, length TEXT);
 
 # Insert 2 rows
 INSERT INTO bars (id, name, length) VALUES (1, 'Mars Bar','8cm');
+# 2nd row
 INSERT INTO bars (id, name, length) VALUES (2, 'Snickers Bar','10cm');
 
 # 9: Query
