@@ -1,8 +1,12 @@
 # Clone the Repo cosc2759-sem1-2023-labs
 git clone https://github.com/rmit-computing-technologies/cosc2759-sem1-2023-labs
+# Goto Folder
 cd lab07
+# Goto Infra
 cd infra
+# Init
 terraform init
+# Update Variables
 vim you.auto.tfvars
 # update public key (/home/ubuntu/.ssh/github_sdo_key.pub) and ip address and set allow=true i.e allow all ips
 # Check IP address with "curl ifconfig.co"
