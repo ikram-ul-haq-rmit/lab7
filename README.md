@@ -10,8 +10,8 @@ stat -c "%a" /home/ubuntu/.ssh/github_sdo_key.pub
 chmod 400 /home/ubuntu/.ssh/github_sdo_key.pub
 terraform apply
 
-# "app" = "public_ip_address" = "3.87.44.32"
-# "db" = "public_ip_address" = "44.208.36.128"
+#"app" =  "3.87.44.32"
+#"db" =  "44.208.36.128"
 
 # Update app_server IP address in inventory1.yml file. Then run below command
 ansible app_servers -m ping -i inventory1.yml -u ubuntu --private-key ~/.ssh/github_sdo_key
